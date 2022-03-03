@@ -2,10 +2,7 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Petstagram.Server.Infrastructure;
-    using Petstagram.Server.Infrastructure.Extensions;
     using Petstagram.Server.Infrastructure.Services;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using static Infrastructure.WebConstatnts;
@@ -18,7 +15,7 @@
 
         public PetsController(
             IPetsService service
-            ,ICurrentUserService currentUserService)
+            , ICurrentUserService currentUserService)
         {
             this.pet = service;
             this.currentUser = currentUserService;
@@ -52,7 +49,7 @@
             var userId = this.currentUser.GetId();
 
             var cats = await this.pet.ByUser(userId);// zeby moc tego używać to potrzebujemy tokenu i Claimów,
-                                                         //więc musi być Authorize
+                                                     //więc musi być Authorize
 
             return cats;
         }

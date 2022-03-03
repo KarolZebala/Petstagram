@@ -32,8 +32,8 @@ namespace Petstagram.Server.Features.Pets
                 UserId = userId
             };
 
-            this.dbContext.Add(pet);
-            await this.dbContext.SaveChangesAsync();
+            dbContext.Add(pet);
+            await dbContext.SaveChangesAsync();
 
             return pet.Id;
         }

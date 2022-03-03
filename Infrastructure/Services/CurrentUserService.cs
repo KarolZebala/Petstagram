@@ -10,8 +10,9 @@ namespace Petstagram.Server.Infrastructure.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        //private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IHttpContextAccessor httpContextAccessor;
         private readonly ClaimsPrincipal user;
+        
 
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
@@ -20,11 +21,13 @@ namespace Petstagram.Server.Infrastructure.Services
 
         public string GetId()
             => this.user
-                ?.Identity
-                ?.Name;
+                .GetId();//GetId jest moją funkcją z Infrastructure.Extensions
+
 
         public string GetUserName()
             => this.user
-                .GetId();//GetId jest moją funkcją z Infrastructure.Extensions
+                .Identity
+                .Name;
+                
     }
 }

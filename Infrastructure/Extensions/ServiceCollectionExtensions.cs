@@ -13,6 +13,7 @@ using Petstagram.Server.Features.Profiles;
 using Petstagram.Server.Features.Search;
 using Petstagram.Server.Infrastructure.Filters;
 using Petstagram.Server.Infrastructure.Services;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Petstagram.Server.Infrastructure.Extensions
@@ -90,6 +91,31 @@ namespace Petstagram.Server.Infrastructure.Extensions
                         Title = "Petstagram API",
                         Version = "v1" 
                     });
+                c.AddSecurityDefinition("AuthorizationBearer", new OpenApiSecurityScheme
+                {
+                    Description = @"JWT Authorization header using the Bearer scheme.
+                                  <br/> Enter your token in the text input below.
+                                  <br/> You don't have to add prefix 'Bearer'.
+                                  <br/> Example: 'this_is_my_token'",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "AuthorizationBearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer"
+                        },
+                        new List<string>()
+                    }
+                });
             });
 
 

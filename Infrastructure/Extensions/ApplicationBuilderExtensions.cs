@@ -13,6 +13,7 @@
                {
                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Petstagram API");
                    c.RoutePrefix = string.Empty;
+
                });
 
            
