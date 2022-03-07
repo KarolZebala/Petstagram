@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petstagram.Server.Data;
 using Petstagram.Server.Data.Models;
-using Petstagram.Server.Data.Models.Base;
 using Petstagram.Server.Features.Profiles.Models;
 using Petstagram.Server.Infrastructure.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,7 +21,7 @@ namespace Petstagram.Server.Features.Profiles
             => await this.dbContext
                 .Users
                 .Where(u => u.Id == userId)
-                .Select(u => allInformation 
+                .Select(u => allInformation
                     ? new PublicProfileServiceModel
                     {
                         Name = u.Profile.Name,
@@ -72,7 +69,7 @@ namespace Petstagram.Server.Features.Profiles
                 return "User does not exist";
             }
 
-            if(user.Profile == null)
+            if (user.Profile == null)
             {
                 user.Profile = new Profile();
             }

@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Petstagram.Server.Features.Follow;
-using Petstagram.Server.Features.Identity.Models;
 using Petstagram.Server.Infrastructure.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Petstagram.Server.Features.Profiles.Models
 {
     using static Infrastructure.WebConstatnts;
-    public class ProfileController:ApiController
+    public class ProfileController : ApiController
     {
         private readonly IProfileService profile;
         private readonly IFollowService follow;
@@ -36,14 +31,15 @@ namespace Petstagram.Server.Features.Profiles.Models
         public async Task<ActionResult<ProfileServiceModel>> Details(string id)
         {
             var includeAllInformtion = await this.follow.IsFollower(id, this.currentUser.GetId());//sprawdzenie czy obecnie zalogowany user
-                                                                                                   //followuje profil od podanym id
+                                                                                                  //followuje profil od podanym id
             if (!includeAllInformtion)
             {
                 var userIsPrivate = !await this.profile.isPrivate(id);
+
             }
 
             return await this.profile.ByUser(id, includeAllInformtion);
-        }     
+        }
 
         [HttpPut]
         public async Task<ActionResult> Update(UpdateProfileRequestModel model)
