@@ -18,9 +18,10 @@ namespace Petstagram.Server.Features.Profiles
         }
 
         public async Task<ProfileServiceModel> ByUser(string userId, bool allInformation)
-            => await this.dbContext
+        {
+            var profile = await dbContext
                 .Users
-                .Where(u => u.Id == userId)
+                .Where(u => u.Id == userId && u.Profile.Name != null)//trzeba najpierw zauktualizować imie 
                 .Select(u => allInformation
                     ? new PublicProfileServiceModel
                     {
@@ -40,6 +41,8 @@ namespace Petstagram.Server.Features.Profiles
 
                     })
                 .FirstOrDefaultAsync();
+            return profile;
+        }
 
         public async Task<bool> isPrivate(string userId)
             => await this.dbContext

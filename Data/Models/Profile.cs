@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Petstagram.Server.Data.Models
 {
     using static Validation.User;
+
+    /// <summary>
+    /// This class has detail information about user account
+    /// </summary>
     public class Profile
     {
         [Key]

@@ -26,6 +26,8 @@
             this.appSettings = appSettings.Value;
         }
 
+        
+
         [HttpPost]
         [Route(nameof(Register))]
         [AllowAnonymous]

@@ -46,7 +46,8 @@ namespace Petstagram.Server.Features.Pets
                     .Select(c => new PetListingServiceModel
                     {
                         Id = c.Id,
-                        ImageUrl = c.ImageUrl
+                        ImageUrl = c.ImageUrl,
+                        Description = c.Description
                     })
                     .ToListAsync();
 

@@ -1,10 +1,4 @@
-﻿using Petstagram.Server.Features.Identity.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Petstagram.Server.Features.Profiles.Models
+﻿namespace Petstagram.Server.Features.Profiles.Models
 {
     public class PublicProfileServiceModel : ProfileServiceModel
     {

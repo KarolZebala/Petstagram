@@ -1,9 +1,10 @@
-﻿namespace Petstagram.Server.Data.Models
+﻿using Microsoft.AspNetCore.Identity;
+using Petstagram.Server.Data.Models.Base;
+using System;
+using System.Collections.Generic;
+
+namespace Petstagram.Server.Data.Models
 {
-    using Microsoft.AspNetCore.Identity;
-    using Petstagram.Server.Data.Models.Base;
-    using System;
-    using System.Collections.Generic;
     public class User : IdentityUser, IEntity
     {
         public Profile Profile { get; set; }

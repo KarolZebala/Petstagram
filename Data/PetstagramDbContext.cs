@@ -1,15 +1,15 @@
-﻿namespace Petstagram.Server.Data
-{
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore;
-    using Petstagram.Server.Data.Models;
-    using Petstagram.Server.Data.Models.Base;
-    using Petstagram.Server.Infrastructure.Services;
-    using System;
-    using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Petstagram.Server.Data.Models;
+using Petstagram.Server.Data.Models.Base;
+using Petstagram.Server.Infrastructure.Services;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
+namespace Petstagram.Server.Data
+{
     public class PetstagramDbContext : IdentityDbContext<User>
     {
         private readonly ICurrentUserService currentUser;

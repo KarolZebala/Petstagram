@@ -1,6 +1,4 @@
-﻿using Petstagram.Server.Data.Models;
-
-namespace Petstagram.Server.Features.Profiles.Models
+﻿namespace Petstagram.Server.Features.Profiles.Models
 {
     public class ProfileServiceModel
     {

@@ -1,8 +1,9 @@
-﻿namespace Petstagram.Server.Data.Models
+﻿using Petstagram.Server.Data.Models.Base;
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Petstagram.Server.Data.Models
 {
-    using Petstagram.Server.Data.Models.Base;
-    using System;
-    using System.ComponentModel.DataAnnotations;
     using static Validation.Pet;
     public class Pet : DeletableEntity
     {
