@@ -37,7 +37,12 @@
             {
                 UserName = model.UserName,
                 Email = model.Email
+                
+
             };
+
+            
+
             var result = await this.userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)

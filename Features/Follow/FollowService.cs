@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petstagram.Server.Data;
 using Petstagram.Server.Infrastructure.Services;
-using System;
-using Petstagram.Server.Data.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,7 +28,7 @@ namespace Petstagram.Server.Features.Follow
 
             var publicProfile = await this.dbContext
                 .Profiles
-                .Where(p => p.UserId ==userId)
+                .Where(p => p.UserId == userId)
                 .Select(p => !p.IsPrivate)
                 .FirstOrDefaultAsync();
 
@@ -54,6 +52,6 @@ namespace Petstagram.Server.Features.Follow
                .Follows
                .AnyAsync(f => f.UserId == userId &&
                             f.FollowerId == followerId &&
-                            f.IsApproved);  
+                            f.IsApproved);
     }
 }

@@ -1,8 +1,5 @@
 ﻿using Petstagram.Server.Features.Search.Models;
-using Petstagram.Server.Infrastructure.Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Petstagram.Server.Features.Search
@@ -11,6 +8,6 @@ namespace Petstagram.Server.Features.Search
     {
         Task<IEnumerable<ProfileSearchServiceModel>> ProfileSearch(string query);
 
-        
+
     }
 }

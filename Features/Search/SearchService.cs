@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petstagram.Server.Data;
 using Petstagram.Server.Features.Search.Models;
-using Petstagram.Server.Infrastructure.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +16,7 @@ namespace Petstagram.Server.Features.Search
             this.dbContext = dbContext;
         }
 
-       
+
 
         public async Task<IEnumerable<ProfileSearchServiceModel>> ProfileSearch(string query)
             => await this.dbContext
@@ -32,6 +30,6 @@ namespace Petstagram.Server.Features.Search
                     PhotoUrl = u.Profile.ProfilePhotoUrl
                 })
                 .ToListAsync();
-            
+
     }
 }
